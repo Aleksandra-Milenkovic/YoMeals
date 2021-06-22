@@ -32,14 +32,19 @@ public class LoginPage extends BasicPage{
 		return driver.findElement(By.name("btn_submit"));
 	}
 	
-	public void userLogIn(String email, String password) {
+	public void userLogIn(String email, String password) throws InterruptedException {
 		
-		this.getLoginBtn().click();
+		
 		this.getUserName().clear();
+		Thread.sleep(500);
 		this.getUserName().sendKeys(email);
+		Thread.sleep(500);
 		this.getPassword().clear();
+		Thread.sleep(500);
 		this.getPassword().sendKeys(password);
+		Thread.sleep(500);
 		this.getRememberMe().click();
+		Thread.sleep(500);
 		this.getLoginSubmitBtn().click();
 	}
 }

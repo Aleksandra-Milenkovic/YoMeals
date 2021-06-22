@@ -47,6 +47,7 @@ public class LocationPopUpPage extends BasicPage {
 	}
 	
 	public void setLocation(String locationName) {
+		this.locationPopUp();
 		this.getKeyword().click();
 		String location = this.getLocationItem(locationName).getAttribute("data-value");
 		this.js.executeScript("arguments[0].value=arguments[1]", this.getLocationInput(), location);
