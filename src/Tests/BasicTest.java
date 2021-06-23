@@ -21,16 +21,17 @@ import Pages.LoginPage;
 import Pages.MealPage;
 import Pages.NotificationSystemPage;
 import Pages.ProfilePage;
+import Pages.SearchResultPage;
+
 import org.apache.commons.io.FileUtils;
 
 public abstract class BasicTest {
 
-
 	protected WebDriver driver;
 	protected LocationPopUpPage locationPopUpPage;
 	protected String baseURL = "http://demo.yo-meals.com";
-	protected String email="customer@dummyid.com";
-	protected String password= "12345678a";
+	protected String email = "customer@dummyid.com";
+	protected String password = "12345678a";
 	protected JavascriptExecutor js;
 	protected WebDriverWait waiter;
 	protected LoginPage loginPage;
@@ -39,42 +40,38 @@ public abstract class BasicTest {
 	protected AughtPage aughtPage;
 	protected MealPage mealPage;
 	protected CartSummaryPage cartSummaryPage;
-	
+	protected SearchResultPage searchResultPage;
+
 	@BeforeMethod
 	public void setup() {
 		System.setProperty("webdriver.chrome.driver", "driver-lib\\chromedriver.exe");
 		driver = new ChromeDriver();
-		driver.get(baseURL);
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
-		
 
-		js=(JavascriptExecutor)driver;
-		waiter= new WebDriverWait(driver, 30,300);
+		js = (JavascriptExecutor) driver;
+		waiter = new WebDriverWait(driver, 30, 300);
 		locationPopUpPage = new LocationPopUpPage(driver, js, waiter);
-		loginPage= new LoginPage(driver, js, waiter);
-		notificationSystemPage= new NotificationSystemPage(driver, js, waiter);
-		profilePage= new ProfilePage(driver, js, waiter);
-		aughtPage= new AughtPage(driver, js, waiter);
-		mealPage= new MealPage(driver, js, waiter);
-		cartSummaryPage= new CartSummaryPage(driver, js, waiter);
+		loginPage = new LoginPage(driver, js, waiter);
+		notificationSystemPage = new NotificationSystemPage(driver, js, waiter);
+		profilePage = new ProfilePage(driver, js, waiter);
+		aughtPage = new AughtPage(driver, js, waiter);
+		mealPage = new MealPage(driver, js, waiter);
+		cartSummaryPage = new CartSummaryPage(driver, js, waiter);
+		searchResultPage = new SearchResultPage(driver, js, waiter);
 	}
 
 	@AfterMethod
-	
-	
-	
+
 	public void takeScreenshot(ITestResult result) throws IOException, InterruptedException {
-		
-	
-		if (result.getStatus()==ITestResult.FAILURE)
-		{
-			
-			
-			File scr= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-			FileUtils.copyFile(scr, new File("C:\\Users\\Caka\\Desktop\\YoMeals\\YoMeals\\screenshots\\" + result.getName()+".png"));
-			
+
+		if (result.getStatus() == ITestResult.FAILURE) {
+
+			File scr = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+			FileUtils.copyFile(scr,
+					new File("C:\\Users\\Caka\\Desktop\\YoMeals\\YoMeals\\screenshots\\" + result.getName() + ".png"));
+
 		}
 		Thread.sleep(3000);
 		this.driver.quit();

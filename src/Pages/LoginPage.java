@@ -13,6 +13,7 @@ public class LoginPage extends BasicPage{
 		
 	}
 	
+	
 	public WebElement getLoginBtn() {
 		return driver.findElement(By.linkText("Login"));
 	}
