@@ -68,11 +68,11 @@ public abstract class BasicTest {
 	public void takeScreenshot(ITestResult result) throws IOException, InterruptedException {
 		
 	
-		if (ITestResult.FAILURE==result.getStatus())
+		if (result.getStatus()==ITestResult.FAILURE)
 		{
 			
-			TakesScreenshot ts=(TakesScreenshot) driver;
-			File scr= ts.getScreenshotAs(OutputType.FILE);
+			
+			File scr= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 			FileUtils.copyFile(scr, new File("C:\\Users\\Caka\\Desktop\\YoMeals\\YoMeals\\screenshots\\" + result.getName()+".png"));
 			
 		}

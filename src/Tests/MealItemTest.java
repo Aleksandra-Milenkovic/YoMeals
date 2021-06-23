@@ -17,7 +17,7 @@ import Pages.CartSummaryPage;
 
 class MealItemTest extends BasicTest {
 
-	//@Test
+	@Test
 	public void addMealToCart() throws IOException, InterruptedException {
 		
 	driver.navigate().to(baseURL+ "/meal/lobster-shrimp-chicken-quesadilla-combo");
@@ -35,7 +35,7 @@ class MealItemTest extends BasicTest {
 	locationPopUpPage.setLocation("City Center - Albany");
 	Thread.sleep(1000);
 	mealPage.addMealToCart(2);
-	Assert.assertTrue(notificationSystemPage.getMessageContent().contains("Meal Added To Cart"),
+	Assert.assertTrue(notificationSystemPage.getMessageContent().contains("ghkghfkhgfg"),
 			"The message is not visible.");
 
 	
@@ -67,7 +67,7 @@ class MealItemTest extends BasicTest {
 				"The message is not visible.");
 	}
 	
-	@Test
+	//@Test
 	public void clearCart() throws InterruptedException, IOException {
 		driver.navigate().to(baseURL + "/meals");
 		locationPopUpPage.getCloseButton().click();
@@ -99,7 +99,7 @@ class MealItemTest extends BasicTest {
 		Thread.sleep(10000);
 		
 		cartSummaryPage.clearCart();
-		Assert.assertTrue(notificationSystemPage.getMessageContent().contains("rtuyertr7utur"),
+		Assert.assertTrue(notificationSystemPage.getMessageContent().contains("urtureutrut"),
 				"The message is not visible.");
 		
 		
