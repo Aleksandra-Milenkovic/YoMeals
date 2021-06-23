@@ -99,7 +99,7 @@ class MealItemTest extends BasicTest {
 		Thread.sleep(10000);
 		
 		cartSummaryPage.clearCart();
-		Assert.assertTrue(notificationSystemPage.getMessageContent().contains("All meals removed from Cart successfully"),
+		Assert.assertTrue(notificationSystemPage.getMessageContent().contains("rtuyertr7utur"),
 				"The message is not visible.");
 		
 		

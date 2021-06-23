@@ -10,6 +10,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -62,12 +63,20 @@ public abstract class BasicTest {
 
 	@AfterMethod
 	
-	public void takeScreenshot() throws IOException {
-		File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(scrFile, new File("C:\\Users\\Caka\\Desktop\\YoMeals\\YoMeals\\screenshots\\screenshot.png"));
-	}
 	
-	public void cleanup() {
+	
+	public void takeScreenshot(ITestResult result) throws IOException, InterruptedException {
+		
+	
+		if (ITestResult.FAILURE==result.getStatus())
+		{
+			
+			TakesScreenshot ts=(TakesScreenshot) driver;
+			File scr= ts.getScreenshotAs(OutputType.FILE);
+			FileUtils.copyFile(scr, new File("C:\\Users\\Caka\\Desktop\\YoMeals\\YoMeals\\screenshots\\" + result.getName()+".png"));
+			
+		}
+		Thread.sleep(3000);
 		this.driver.quit();
 	}
 
