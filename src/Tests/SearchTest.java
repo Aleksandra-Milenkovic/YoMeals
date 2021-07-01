@@ -48,12 +48,12 @@ public class SearchTest extends BasicTest {
 			Thread.sleep(1000);
 			sa.assertEquals(NumOfMeals, NumOfResults);
 
-			for (int i1 = 0; i1 < searchResultPage.getNumberOfResults(); i1++) {
+			for (int j = 0; j < searchResultPage.getNumberOfResults(); j++) {
 
-				String resultsOnPage = searchResultPage.getMealNames().get(i1);
+				String resultsOnPage = searchResultPage.getMealNames().get(j);
 				Thread.sleep(3000);
 
-				String resultsInTheSheet = sheet.getRow(i).getCell(3 + i1).getStringCellValue();
+				String resultsInTheSheet = sheet.getRow(i).getCell(3 + j).getStringCellValue();
 				Thread.sleep(1000);
 
 				sa.assertTrue(resultsOnPage.contains(resultsInTheSheet), "The Results are not compatible");

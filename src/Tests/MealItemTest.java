@@ -17,7 +17,7 @@ class MealItemTest extends BasicTest {
 		driver.navigate().to(baseURL + "/meal/lobster-shrimp-chicken-quesadilla-combo");
 		Thread.sleep(500);
 		locationPopUpPage.getCloseButton().click();
-		Thread.sleep(500);
+	
 
 		mealPage.addMealToCart(2);
 		Assert.assertTrue(notificationSystemPage.getMessageContent().contains("The Following Errors Occurred"),
@@ -39,7 +39,7 @@ class MealItemTest extends BasicTest {
 		driver.navigate().to(baseURL + "/meal/lobster-shrimp-chicken-quesadilla-combo");
 		Thread.sleep(500);
 		locationPopUpPage.getCloseButton().click();
-		Thread.sleep(500);
+		
 
 		mealPage.addToFavorites();
 		Assert.assertTrue(notificationSystemPage.getMessageContent().contains("Please login first!"),

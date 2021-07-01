@@ -70,7 +70,7 @@ public abstract class BasicTest {
 
 			File scr = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 			FileUtils.copyFile(scr,
-					new File("C:\\Users\\Caka\\Desktop\\YoMeals\\YoMeals\\screenshots\\" + result.getName() + ".png"));
+					new File("./screenshots/" + result.getName() + ".png"));
 
 		}
 		Thread.sleep(3000);

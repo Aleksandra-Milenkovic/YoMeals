@@ -14,7 +14,7 @@ public abstract class BasicPage {
 	public BasicPage(WebDriver driver, JavascriptExecutor js, WebDriverWait waiter) {
 		this.driver = driver;
 		this.js = js;
-		this.waiter = waiter;
+		this.waiter = new WebDriverWait(driver, 30, 300);
 
 	}
 

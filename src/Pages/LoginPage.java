@@ -37,15 +37,10 @@ public class LoginPage extends BasicPage{
 		
 		
 		this.getUserName().clear();
-		Thread.sleep(500);
 		this.getUserName().sendKeys(email);
-		Thread.sleep(500);
-		this.getPassword().clear();
-		Thread.sleep(500);
+		this.getPassword().clear();;
 		this.getPassword().sendKeys(password);
-		Thread.sleep(500);
 		this.getRememberMe().click();
-		Thread.sleep(500);
 		this.getLoginSubmitBtn().click();
 	}
 }

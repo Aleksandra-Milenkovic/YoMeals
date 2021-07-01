@@ -89,26 +89,19 @@ public class ProfilePage extends BasicPage {
 			String country, String state, String city) throws InterruptedException {
 		this.getFirstName().clear();
 		this.getFirstName().sendKeys(firstName);
-		Thread.sleep(500);
 		this.getLastName().clear();
 		this.getLastName().sendKeys(lastName);
-		Thread.sleep(500);
 		this.getAddress().clear();
 		this.getAddress().sendKeys(address);
-		Thread.sleep(500);
 		this.getPhoneNo().clear();
 		this.getPhoneNo().sendKeys(phoneNo);
-		Thread.sleep(500);
 		this.getZipCode().clear();
 		this.getZipCode().sendKeys(zipCode);
-		Thread.sleep(500);
 		this.getCountry().selectByVisibleText(country);
-		Thread.sleep(500);
 		this.getState().selectByVisibleText(state);
-		Thread.sleep(500);
 		this.getCity().selectByVisibleText(city);
 		this.getSave().click();
-		Thread.sleep(1000);
+
 
 	}
 }

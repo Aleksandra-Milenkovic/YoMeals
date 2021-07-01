@@ -14,7 +14,7 @@ public class ProfileTest extends BasicTest {
 		driver.navigate().to(baseURL + "/guest-user/login-form");
 		Thread.sleep(500);
 		locationPopUpPage.getCloseButton().click();
-		Thread.sleep(500);
+		
 
 		loginPage.userLogIn(email, password);
 		Assert.assertTrue(notificationSystemPage.getMessageContent().contains("Login Successfull"),
@@ -22,7 +22,6 @@ public class ProfileTest extends BasicTest {
 		Thread.sleep(500);
 
 		driver.navigate().to(baseURL + "/member/profile");
-		Thread.sleep(500);
 		profilePage.setBasicinfo("Aleksandra", "Milenkovic", "123", "123", "654", "United Kingdom", "London", "Leyton");
 		Assert.assertTrue(notificationSystemPage.getMessageContent().contains("Setup Successful"),
 				"[ERROR}The 'Setup Successfull' message is not visible.");
@@ -41,7 +40,7 @@ public class ProfileTest extends BasicTest {
 		driver.navigate().to(baseURL + "/guest-user/login-form");
 		Thread.sleep(500);
 		locationPopUpPage.getCloseButton().click();
-		Thread.sleep(500);
+		
 
 		loginPage.userLogIn(email, password);
 		Assert.assertTrue(notificationSystemPage.getMessageContent().contains("Login Successfull"),
